@@ -1,0 +1,13 @@
+.login{
+    display: grid;
+    margin: auto;
+    max-width: var(--large);
+    gap: .25rem;
+    padding: 1rem;
+}
+input,
+textarea,
+select,
+button{
+    padding: .5rem;
+}

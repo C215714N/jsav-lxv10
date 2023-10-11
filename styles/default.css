@@ -1,12 +1,12 @@
 /* Importaciones */
-
+@import url('https://fonts.googleapis.com/css2?family=Ubuntu');
 /* Reglas Generales */
-
+@import url('general.css');
 /* Cabecera */
 
 /* Navegacion */
 
 /* Contenido */
-
+@import url('login.css');
 /* Pie de Pagina */
 
