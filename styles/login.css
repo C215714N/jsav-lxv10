@@ -5,9 +5,18 @@
     gap: .25rem;
     padding: 1rem;
 }
+.todos{
+    display: flex;
+    justify-content: center;
+}
+.todos button{
+    max-width: 10rem;
+    flex-basis: auto;
+}
 input,
 textarea,
 select,
 button{
+    flex: 1 0 0;
     padding: .5rem;
 }
