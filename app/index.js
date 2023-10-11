@@ -2,6 +2,7 @@
 import { d, root } from './global.js';
 import { getStore } from './store.js';
 import Login from './login.js';
+import Todos from './todos/index.js';
 
 // IIFE (Inmediatly Invoked Function Expression)
 ( function(){
@@ -9,8 +10,7 @@ import Login from './login.js';
         let isLogged = getStore('username');
 
         if(isLogged){
-            root.innerHTML = `<h1>Bienvenido ${isLogged}</h1>`
-            return;
+            Todos();
         }
         else {
             root.append(Login());
