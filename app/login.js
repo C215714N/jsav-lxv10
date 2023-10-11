@@ -1,6 +1,12 @@
+import { setStore } from './store.js';
+import Field from './field.js';
+
 function Login(){
     // Crea el Formulario
-    const form = document.createElement('form');
+    const form = Object.assign(document.createElement('form'),{
+        id: 'login',
+        className: 'login',
+    });
     // Agrega los Campos
     form.append(
         Field('text', {
@@ -19,44 +25,16 @@ function Login(){
             innerText: 'Registrarse'
         })
     );
-    form.addEventListener('submit', (e) => {
-        e.preventDefault();
-        sessionStorage.setItem('username', document.querySelector('[name*="usuario"]').value)
-    } )
+    form.addEventListener('submit', (e) => save(e) )
     // Devuelve el Formulario
     return form;
 }
 
-function Field(type, props){
-    const element = document.createDocumentFragment();
-    let field, label = '';
-    // Determina la etiqueta a utilizar
-    switch (type){
-        case 'textarea':
-            field = 'textarea';
-        break;
-        case 'select':
-            field = 'select';
-        break;
-        case 'button':
-        case 'submit':
-        case 'reset':
-            field = 'button';
-        break;
-        default:
-            field = 'input';
-    }
-    
-    if(field != 'button') {
-        label = Object.assign(document.createElement('label'), {
-        forHTML: props.name,
-        innerHTML: "Ingrese su " + props.name })
-    }
-    field = Object.assign(document.createElement(field), {...props, type: type } )
-
-    element.append(label, field)
-    // Devuelve el campo y su etiqueta de ser necesaria
-    return element;
+function save(e){
+    e.preventDefault()
+    setStore('username', document.querySelector('[name*="usuario"]').value);
+    window.location.reload()
+    window.history.pushState('profile', '', '/profile')
 }
 
 export default Login;
