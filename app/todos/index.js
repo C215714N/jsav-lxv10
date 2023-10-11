@@ -1,12 +1,13 @@
 import { getStore, setStore } from '../store.js';
 
-const Template = () => `
+const Template = (username) => `
+<h1>Bienvenido ${username}</h1>
 <main>
-    <form>
+    <form class="todos">
         <input 
             id="addTodo" 
-            type="search" 
-            placeholder="buscar"
+            type="text" 
+            placeholder="Escriba su tarea"
             min-length="5"
             required>
         <button>Agregar</button>
@@ -42,8 +43,8 @@ function renderList(list = ''){
     return list;
 }
 
-function Todos(){
-    root.innerHTML = Template();
+function Todos(username){
+    root.innerHTML = Template(username);
     
     const form = document.querySelector('form');
     form.addEventListener('submit', (e) => {

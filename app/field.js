@@ -22,7 +22,7 @@ function Field(type, props){
         forHTML: props.name,
         innerHTML: "Ingrese su " + props.name })
     }
-    field = Object.assign(document.createElement(field), {...props, type: type } )
+    field = Object.assign(document.createElement(field), {...props, type } )
     element.append(label, field)
     // Devuelve el campo y su etiqueta de ser necesaria
     return element;

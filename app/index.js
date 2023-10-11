@@ -10,7 +10,7 @@ import Todos from './todos/index.js';
         let isLogged = getStore('username');
 
         if(isLogged){
-            Todos();
+            Todos(isLogged)
         }
         else {
             root.append(Login());
