@@ -17,14 +17,21 @@ const Template = () => `
 </main>`
 
 function addtodo(){
-    const oldTodos = getStore('todos', localStorage);
-    const todo = document.getElementById('addTodo').value;
-    const newTodos = typeof oldTodos == Object ? [...oldTodos, todo] : [todo];
-
+    // Captura de Input
+    const input = document.getElementById('addTodo');
+    // Captura de Lista de Tareas
     const list = document.querySelector('ul');
-    
+    // Lectura de Tareas Almacenadas
+    const oldTodos = getStore('todos', localStorage);
+    // Lectura de Nueva Tarea
+    const todo = document.getElementById('addTodo').value;
+    // Concatenación de Tareas
+    const newTodos = oldTodos ? [...oldTodos, todo] : [todo];
+    // Almacenamiento de Tareas
     setStore('todos', newTodos, localStorage)
+    // Actualización de Lista de Tareas
     list.innerHTML = renderList()
+    input.value = '';
 }
 
 function renderList(list = ''){
