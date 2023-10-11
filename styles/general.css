@@ -1,0 +1,37 @@
+/* Variables Globales */
+:root{
+    --primary: #248;
+    --dark: #333;
+    --light: #eee;
+    --danger: #c33;
+    --warning: #ec0;
+    --success: #3c6;
+    --info: #28f;
+
+    --font: 'Ubuntu', 'Century Gothic', sans-serif;
+    
+    --small: 240px;
+    --medium: 360px;
+    --large: 480px;
+}
+/* Apariencia General */
+* {
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+    font-family: var(--font);
+}
+/* Margenes */
+    body,
+    h1,
+    h2,
+    h3,
+    header p,
+    .menu{
+        margin: 0;
+    }
+/* Estilos */
+    nav a,
+    .social a,
+    .unstyled{
+        text-decoration: none;
+    }
