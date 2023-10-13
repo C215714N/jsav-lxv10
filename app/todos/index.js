@@ -18,14 +18,12 @@ const Template = (username) => `
 </main>`
 
 function addtodo(){
-    // Captura de Input
-    const input = document.getElementById('addTodo');
     // Captura de Lista de Tareas
     const list = document.querySelector('ul');
+    // Captura de Nueva Tarea
+    const todo = document.getElementById('addTodo').value;
     // Lectura de Tareas Almacenadas
     const oldTodos = getStore('todos', localStorage);
-    // Lectura de Nueva Tarea
-    const todo = document.getElementById('addTodo').value;
     // Concatenación de Tareas
     const newTodos = oldTodos ? [...oldTodos, todo] : [todo];
     // Almacenamiento de Tareas
@@ -37,9 +35,9 @@ function addtodo(){
 
 function renderList(list = ''){
     const todos = getStore('todos', localStorage);
-    if (todos != null ){
-        todos.forEach(todo => { list += `<li>${todo}</li>` });
-    }
+    if (todos != null ) todos.forEach( todo => { 
+        list += `<li>${todo}</li>` 
+    } );
     return list;
 }
 
@@ -50,8 +48,7 @@ function Todos(username){
     form.addEventListener('submit', (e) => {
         e.preventDefault();
         addtodo();
-    })
-    
+    } )
 }
 
 export default Todos;

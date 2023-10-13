@@ -9,11 +9,7 @@ import Todos from './todos/index.js';
     d.addEventListener('DOMContentLoaded', () => {
         let isLogged = getStore('username');
 
-        if(isLogged){
-            Todos(isLogged)
-        }
-        else {
-            root.append(Login());
-        }
+        if(isLogged) Todos(isLogged)
+        else root.append(Login());
     } )
 })()
